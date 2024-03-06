@@ -5,6 +5,11 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokerClickerV3", "PokerClickerV3.csproj", "{8EA6FF2D-EB43-47D2-AB89-FF29DF516175}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C9FB1A5-92CA-4AD9-BD77-E6E085E2444D}"
+	ProjectSection(SolutionItems) = preProject
+		Script1.js = Script1.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
