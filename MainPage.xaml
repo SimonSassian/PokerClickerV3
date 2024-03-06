@@ -4,42 +4,28 @@
              x:Class="PokerClickerV3.MainPage">
 
     <StackLayout>
+
+        <!-- Main Content -->
         <ScrollView>
-            <VerticalStackLayout
-                Spacing="25"
-                Padding="30,0"
-                VerticalOptions="Center">
+            <StackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
 
-                <Image
-                    Source="Poker.png"
-                    SemanticProperties.Description=""
-                    HeightRequest="200"
-                    HorizontalOptions="Center" />
+                <!-- Image Button -->
+                <Image Source="Poker.png"
+                HeightRequest="200"
+                HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPokerImageTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
 
-                <Label
-                    Text=""
-                    SemanticProperties.HeadingLevel="Level1"
-                    FontSize="32"
-                    HorizontalOptions="Center" />
 
-                <Label
-                    Text=""
-                    SemanticProperties.HeadingLevel="Level2"
-                    SemanticProperties.Description="Tere Tulemas V3 PokerClickeri Mängu"
-                    FontSize="18"
-                    HorizontalOptions="Center" />
-
-                <Button
-                    x:Name="CounterBtn"
-                    Text="Klõpsi mind"
-                    SemanticProperties.Hint="number kui palju vajutatud"
-                    Clicked="OnCounterClicked"
-                    HorizontalOptions="Center" />
-
-            </VerticalStackLayout>
+            </StackLayout>
         </ScrollView>
 
+        <!-- Grid Layout for Navbar and Main Content -->
         <Grid>
+
+            <!-- Define Rows -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -47,18 +33,35 @@
 
             <!-- Navbar -->
             <StackLayout BackgroundColor="LightGray" Grid.Row="0">
-                <Label Text="My Navbar" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                <Label Text="Minu navigeerimisriba"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand" />
             </StackLayout>
 
             <!-- Main Content -->
             <ScrollView Grid.Row="1">
                 <StackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
-                    <Image Source="Poker.png" HeightRequest="200" HorizontalOptions="Center" />
-                    <Label Text="" FontSize="32" HorizontalOptions="Center" />
-                    <Label Text="" FontSize="18" HorizontalOptions="Center" />
+
+                    <!-- Logo -->
+                    <Image Source="Poker.png"
+                           HeightRequest="200"
+                           HorizontalOptions="Center"
+                           IsVisible="False" />
+                    <!-- Placeholder for Content -->
+                    <Label Text=""
+                           FontSize="32"
+                           HorizontalOptions="Center"
+                           IsVisible="False" />
+                    <Label Text=""
+                           FontSize="18"
+                           HorizontalOptions="Center"
+                           IsVisible="False" />
+
                 </StackLayout>
             </ScrollView>
+
         </Grid>
+
     </StackLayout>
 
 </ContentPage>
