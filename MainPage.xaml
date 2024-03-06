@@ -6,21 +6,29 @@
     <StackLayout>
 
         <!-- Main Content -->
-        <ScrollView>
-            <StackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
+        <StackLayout>
 
-                <!-- Image Button -->
+            <!-- Placeholder for Image and Score -->
+            <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+
+                <!-- Image -->
                 <Image Source="Poker.png"
-                HeightRequest="200"
-                HorizontalOptions="Center">
+                       HeightRequest="200"
+                       HorizontalOptions="Center">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnPokerImageTapped" />
                     </Image.GestureRecognizers>
                 </Image>
 
-
+                <!-- Score -->
+                <Label x:Name="ScoreLabel"
+                       Text="Score: 0"
+                       FontSize="18"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Start" />
             </StackLayout>
-        </ScrollView>
+
+        </StackLayout>
 
         <!-- Grid Layout for Navbar and Main Content -->
         <Grid>
@@ -42,11 +50,6 @@
             <ScrollView Grid.Row="1">
                 <StackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
 
-                    <!-- Logo -->
-                    <Image Source="Poker.png"
-                           HeightRequest="200"
-                           HorizontalOptions="Center"
-                           IsVisible="False" />
                     <!-- Placeholder for Content -->
                     <Label Text=""
                            FontSize="32"

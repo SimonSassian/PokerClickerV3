@@ -17,6 +17,9 @@
             await ((VisualElement)sender).ScaleTo(0.8, 250); // Muudab suurust 80% -le originaalist
             await ((VisualElement)sender).ScaleTo(1, 250); // Taastab originaalsuuruse
 
+            // Skoori väärtuse muutmine vastavalt klõpsude arvule
+            ScoreLabel.Text = $"Score: {count}";
+
             // Asendage SemanticScreenReader.Announce oma eelistatud teabeedastusmeetodiga
             Announce($"Clicked {count} times");
         }
@@ -26,19 +29,6 @@
         {
             // Asendage see osa oma rakenduse konkreetse teabe edastamise meetodiga
             Console.WriteLine(message);
-        }
-
-        private void OnPokerImageClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            // Jälgime klõpsamise arvu, kuid ei muuda pildi lähtepilti
-            if (count == 1)
-            {
-                ((ImageButton)sender).Source = ImageSource.FromFile("pokerclicked.png");
-            }
-
-            SemanticScreenReader.Announce($"Clicked {count} times");
         }
     }
 }
