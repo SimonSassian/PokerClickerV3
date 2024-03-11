@@ -1,62 +1,48 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PokerClickerV3.MainPage">
 
     <StackLayout>
 
+        <!-- Navbar -->
+        <Grid BackgroundColor="White" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Game" Clicked="OnGameButtonClicked" Grid.Column="0" />
+            <Button Text="Shop" Clicked="OnShopButtonClicked" Grid.Column="1" />
+            <Button Text="Settings" Clicked="OnSettingsButtonClicked" Grid.Column="2" />
+        </Grid>
+
         <!-- Main Content -->
-        <StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
 
-            <!-- Placeholder for Image and Score -->
-            <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                <!-- Placeholder for Image and Score -->
+                <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
 
-                <!-- Image -->
-                <Image Source="Poker.png"
-                       HeightRequest="200"
-                       HorizontalOptions="Center">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnPokerImageTapped" />
-                    </Image.GestureRecognizers>
-                </Image>
+                    <!-- Image -->
+                    <Image Source="Poker.png"
+                           HeightRequest="200"
+                           HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPokerImageTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
 
-                <!-- Score -->
-                <Label x:Name="ScoreLabel"
-                       Text="Score: 0"
-                       FontSize="18"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Start" />
-            </StackLayout>
-
-        </StackLayout>
-
-        <!-- Grid Layout for Navbar and Main Content -->
-        <Grid>
-
-            <!-- Define Rows -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            
-            <!-- Main Content -->
-            <ScrollView Grid.Row="1">
-                <StackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
-
-                    <!-- Placeholder for Content -->
-                    <Label Text=""
-                           FontSize="32"
-                           HorizontalOptions="Center"
-                           IsVisible="False" />
-                    <Label Text=""
+                    <!-- Score -->
+                    <Label x:Name="ScoreLabel"
+                           Text="Score: 0"
                            FontSize="18"
                            HorizontalOptions="Center"
-                           IsVisible="False" />
-
+                           VerticalOptions="Start" />
                 </StackLayout>
-            </ScrollView>
 
-        </Grid>
+            </StackLayout>
+        </ScrollView>
 
     </StackLayout>
 

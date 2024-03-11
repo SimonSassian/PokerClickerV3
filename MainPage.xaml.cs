@@ -1,4 +1,7 @@
-﻿namespace PokerClickerV3
+﻿using Microsoft.Maui.Controls;
+using System;
+
+namespace PokerClickerV3
 {
     public partial class MainPage : ContentPage
     {
@@ -13,22 +16,33 @@
         {
             count++;
 
-            // Pildi suuruse muutmine animatsiooniga
-            await ((VisualElement)sender).ScaleTo(0.8, 250); // Muudab suurust 80% -le originaalist
-            await ((VisualElement)sender).ScaleTo(1, 250); // Taastab originaalsuuruse
+            await ((VisualElement)sender).ScaleTo(0.8, 250);
+            await ((VisualElement)sender).ScaleTo(1, 250);
 
-            // Skoori väärtuse muutmine vastavalt klõpsude arvule
             ScoreLabel.Text = $"Score: {count}";
 
-            // Asendage SemanticScreenReader.Announce oma eelistatud teabeedastusmeetodiga
-            Announce($"Clicked {count} times");
+            Console.WriteLine($"Clicked {count} times");
         }
 
-        // Funktsioon teabe edastamiseks (võib olla osa teisest teenusest)
-        private void Announce(string message)
+        private void OnGameButtonClicked(object sender, EventArgs e)
         {
-            // Asendage see osa oma rakenduse konkreetse teabe edastamise meetodiga
-            Console.WriteLine(message);
+            // Handle the Game button click event
+            // For example, navigate to the Game page
+            Navigation.PushAsync(new MainPage());
+        }
+
+        private void OnShopButtonClicked(object sender, EventArgs e)
+        {
+            // Handle the Shop button click event
+            // For example, navigate to the Shop page
+            Navigation.PushAsync(new ShopPage());
+        }
+
+        private void OnSettingsButtonClicked(object sender, EventArgs e)
+        {
+            // Handle the Settings button click event
+            // For example, navigate to the Settings page
+            Navigation.PushAsync(new SettingsPage());
         }
     }
 }

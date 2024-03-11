@@ -55,4 +55,10 @@
 	  <PackageReference Include="Microsoft.Kiota.Serialization.Form" Version="1.1.5" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="Pages\Scoreboard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
