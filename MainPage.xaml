@@ -38,14 +38,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
-            <!-- Navbar -->
-            <StackLayout BackgroundColor="LightGray" Grid.Row="0">
-                <Label Text="Minu navigeerimisriba"
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand" />
-            </StackLayout>
-
+            
             <!-- Main Content -->
             <ScrollView Grid.Row="1">
                 <StackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
