@@ -1,1 +1,98 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Poker Clicker">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="DarkRed" Offset="0.0"/>
+            <GradientStop Color="#000" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <Grid>
+        <!--pokerimg-->
+        <Image 
+            x:Name="imgStraight"
+            Opacity="0"
+            Source="straight.svg"
+            VerticalOptions="Center"
+            HorizontalOptions="Start"
+            TranslationX="-100"
+            TranslationY="-64"
+            WidthRequest="200"
+            HeightRequest="200"/>
+        <Image 
+            x:Name="imgPokertoken"
+            Opacity="0"
+            Source="pokertoken.svg"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            TranslationX="-48"
+            TranslationY="148"
+            WidthRequest="96"
+            HeightRequest="96"/>
+
+        <Image 
+            x:Name="imgPokerchip"
+            Opacity="0"
+            Source="pokerchip.svg"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            TranslationX="32"
+            TranslationY="76"
+            WidthRequest="300"
+            HeightRequest="300"/>
+        <Image 
+            x:Name="imgAce"
+            Opacity="0"
+            Source="ace.svg"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            TranslationX="18"
+            TranslationY="72"
+            WidthRequest="66"
+            HeightRequest="66"/>
+        
+        
+        <!--Intro Box-->
+        <Border
+            x:Name="imgIntro"
+            Opacity="0"
+            Padding="24,32"
+            BackgroundColor="{StaticResource FrameBackgroundColor}"
+            Stroke="{StaticResource BorderColor}"
+            HorizontalOptions="Fill"
+            VerticalOptions="End"
+            Margin="20">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="24" />
+            </Border.StrokeShape>
+
+            <VerticalStackLayout
+                Spacing="16">
+
+                <Label 
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource IntroPageHeaderStyle}"
+                    Text="Hello!"/>
+
+                <Button 
+                    Style="{StaticResource ButtonStyle}"
+                    Text="Play"
+                    HorizontalOptions="Center"
+                    Margin="0,12,0,6"
+                    Clicked="Play_Clicked"/>
+
+            </VerticalStackLayout>
+
+        </Border>
+
+
+
+
+
+    </Grid>
+
+
+</ContentPage>
