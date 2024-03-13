@@ -1,10 +1,8 @@
-﻿using PokerClickerV3.Views;
-
-namespace PokerClickerV3
+﻿namespace PokerClickerV3
 {
 
 
-  public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage
   {
     private void PlayClicked(object sender, EventArgs e)
     {
