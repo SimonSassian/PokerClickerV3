@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui.Controls;
 using System;
 using PokerClickerV3.Views;
+using Microsoft.UI.Xaml.Controls;
 
 namespace PokerClickerV3
 {
