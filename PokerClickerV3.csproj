@@ -50,15 +50,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\ace.svg" />
-	  <None Remove="Resources\Images\manypokerchips.svg" />
-	  <None Remove="Resources\Images\orangepoker.svg" />
-	  <None Remove="Resources\Images\pinkpoker.svg" />
-	  <None Remove="Resources\Images\pokerchip.svg" />
 	  <None Remove="Resources\Images\pokerclicked.svg" />
-	  <None Remove="Resources\Images\pokergreen.svg" />
-	  <None Remove="Resources\Images\pokertoken.svg" />
-	  <None Remove="Resources\Images\straight.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -67,13 +59,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\NavPage.xaml.cs">
-	    <DependentUpon>NavPage.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Views\NavPage.xaml">
+	  <MauiXaml Update="Views\ClickerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SettingsPage.xaml">
