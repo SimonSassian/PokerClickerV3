@@ -67,12 +67,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\IntroPage.xaml.cs">
+	    <DependentUpon>IntroPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\NavPage.xaml.cs">
 	    <DependentUpon>NavPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\IntroPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\NavPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -1,11 +1,17 @@
-﻿namespace PokerClickerV3;
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Views;
 
-public partial class App : Application
+namespace PokerClickerV3
 {
-	public App()
-	{
-		InitializeComponent();
+    public partial class App : Application
+    {
+        public App()
+        {
+            InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+            // Set the MainPage to your intro page
+            MainPage = new NavigationPage(new IntroPage());
+        }
+    }
 }

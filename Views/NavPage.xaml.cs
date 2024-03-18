@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui.Controls;
-using System;
 using PokerClickerV3.Views;
+using System;
+using Views;
 
 namespace PokerClickerV3
 {
@@ -8,25 +9,35 @@ namespace PokerClickerV3
     {
         public NavPage() : base()
         {
-            StackLayout layout = base.Content.GetVisualTreeDescendants().First() as StackLayout;
-            Grid grid = new();
-            ColumnDefinitionCollection gridColumnDefinitions = grid.ColumnDefinitions;
-            for (int i = 0; i < 3; i++)
-            {
-                ColumnDefinition columnDefinition = new();
-                columnDefinition.Width = GridLength.Star;
-                gridColumnDefinitions.Add(columnDefinition);
-            }
-
-            Microsoft.Maui.Controls.Button gameButton = new();
-            gameButton.Text = "Game";
-            gameButton.Clicked += (object sender, EventArgs e) => OnGameButtonClicked(sender, e);
-            layout.Children.Add(gameButton);
-
-            layout.Children.Add(grid);
+            // Do not initialize content here
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
+            // Initialize content here
+            StackLayout layout = base.Content.GetVisualTreeDescendants().FirstOrDefault() as StackLayout;
+
+            if (layout != null)
+            {
+                Grid grid = new();
+                ColumnDefinitionCollection gridColumnDefinitions = grid.ColumnDefinitions;
+                for (int i = 0; i < 3; i++)
+                {
+                    ColumnDefinition columnDefinition = new();
+                    columnDefinition.Width = GridLength.Star;
+                    gridColumnDefinitions.Add(columnDefinition);
+                }
+
+                Microsoft.Maui.Controls.Button gameButton = new();
+                gameButton.Text = "Game";
+                gameButton.Clicked += (object sender, EventArgs e) => OnGameButtonClicked(sender, e);
+                layout.Children.Add(gameButton);
+
+                layout.Children.Add(grid);
+            }
+        }
 
         private void OnGameButtonClicked(object sender, EventArgs e)
         {
@@ -48,28 +59,6 @@ namespace PokerClickerV3
             // For example, navigate to the Settings page
             //Navigation.PushAsync(new SettingsPage());
             Application.Current.MainPage = new NavigationPage(new SettingsPage());
-        }
-    }
-
-    public partial class MainPage : ContentPage
-    {
-        int count = 0;
-
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
-        private async void OnPokerImageTapped(object sender, EventArgs e)
-        {
-            count++;
-
-            await ((VisualElement)sender).ScaleTo(0.8, 250);
-            await ((VisualElement)sender).ScaleTo(1, 250);
-
-            ScoreLabel.Text = $"Score: {count}";
-
-            Console.WriteLine($"Clicked {count} times");
         }
     }
 }
