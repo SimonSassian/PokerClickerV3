@@ -5,11 +5,11 @@
 
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
         <!-- Music Toggle -->
-        <Switch x:Name="MusicSwitch" IsToggled="True" Toggled="OnMusicToggle" Margin="0,10,0,10" />
+        <Switch x:Name="MusicSwitch" IsToggled="True" Toggled="ToggleMusicSwitch_Toggled" Margin="0,10,0,10" />
         <Label Text="Music" HorizontalOptions="Center" />
 
         <!-- Dark Mode / Light Mode Toggle -->
-        <Switch x:Name="DarkModeSwitch" IsToggled="False" Toggled="OnDarkModeToggle" Margin="0,10,0,10" />
+        <Switch x:Name="DarkModeSwitch" IsToggled="False" Toggled="ToggleDarkModeSwitch_Toggled" Margin="0,10,0,10" />
         <Label Text="Dark Mode" HorizontalOptions="Center" />
     </StackLayout>
 
