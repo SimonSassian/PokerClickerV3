@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PokerClickerV3.GamePage">
+             x:Class="PokerClickerV3.GamePage"
+             Title="GamePage">
 
-    <StackLayout>
+    <!-- Navbar -->
+    <Grid BackgroundColor="White" Padding="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Button Text="Game" Clicked="OnGameButtonClicked" Grid.Column="0" />
+        <Button Text="Shop" Clicked="OnShopButtonClicked" Grid.Column="1" />
+        <Button Text="Settings" Clicked="OnSettingsButtonClicked" Grid.Column="2" />
+    </Grid>
+
+    <StackLayout VerticalOptions="CenterAndExpand">
         <!-- Placeholder for Image and Score -->
         <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
 
@@ -24,5 +38,4 @@
                    VerticalOptions="Start" />
         </StackLayout>
     </StackLayout>
-
 </ContentPage>
