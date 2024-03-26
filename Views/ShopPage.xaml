@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PokerClickerV3.Views.ShopPage"
+             Title="ShopPage">
+    <StackLayout>
+        <!-- ClicksLabel -->
+        <Label x:Name="ClicksLabel"
+               Text="You have 0 clicks"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand" />
+
+        <!-- UpgradesList -->
+        <ListView x:Name="UpgradesList"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+            <!-- Define ListView ItemTemplate if needed -->
+        </ListView>
+    </StackLayout>
+</ContentPage>

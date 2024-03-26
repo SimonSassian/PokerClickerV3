@@ -1,4 +1,4 @@
-﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
 
@@ -15,18 +15,31 @@ namespace PokerClickerV3
             // Add more upgrades as needed
         };
 
+        // Define ClicksLabel and UpgradesList variables
+        private Label ClicksLabel;
+        private ListView UpgradesList;
+
         public ShopPage(int currentClicks)
         {
-            InitializeComponent();
+            InitializeComponent(); // Added InitializeComponent method
             clicks = currentClicks;
             UpdateUI();
         }
 
+        private void InitializeComponent() // Added InitializeComponent method
+        {
+            global::Microsoft.Maui.Controls.Xaml.Extensions.LoadFromXaml(this, typeof(ShopPage));
+            ClicksLabel = this.FindByName<Label>("ClicksLabel");
+            UpgradesList = this.FindByName<ListView>("UpgradesList");
+        }
+
         private void UpdateUI()
         {
-            ClicksLabel.Text = $"You have {clicks} clicks.";
-
-            UpgradesList.ItemsSource = upgrades;
+            if (ClicksLabel != null && UpgradesList != null)
+            {
+                ClicksLabel.Text = $"You have {clicks} clicks.";
+                UpgradesList.ItemsSource = upgrades;
+            }
         }
 
         private void OnBuyClicked(object sender, EventArgs e)
