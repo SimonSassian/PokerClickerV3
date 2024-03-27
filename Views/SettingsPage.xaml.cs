@@ -51,5 +51,11 @@ namespace PokerClickerV3
             // Siin saate lisada koodi, mis peaks käivituma, kui kasutaja klõpsab seadete nuppu
             Navigation.PushAsync(new SettingsPage());
         }
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            // Navigeerime tagasi GamePage.xaml-le
+            await Navigation.PushAsync(new GamePage());
+
+        }
     }
 }

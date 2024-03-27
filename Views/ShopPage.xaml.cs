@@ -7,11 +7,11 @@ namespace PokerClickerV3
     public partial class ShopPage : ContentPage
     {
         private int clicks = 0;
-        private Dictionary<string, int> upgrades = new Dictionary<string, int>()
+        private Dictionary<string, (int cost, int multiplier)> upgrades = new Dictionary<string, (int cost, int multiplier)>()
         {
-            { "Upgrade 1", 100 },
-            { "Upgrade 2", 200 },
-            { "Upgrade 3", 300 }
+            { "Upgrade 1", (100, 2) },
+            { "Upgrade 2", (200, 4) },
+            { "Upgrade 3", (300, 6) }
             // Add more upgrades as needed
         };
 
@@ -47,6 +47,14 @@ namespace PokerClickerV3
             {
                 Children = { ClicksLabel, UpgradesList }
             };
+
+            // Add back button
+            var backButton = new Button
+            {
+                Text = "Back"
+            };
+            backButton.Clicked += BackButton_Clicked;
+            ((StackLayout)Content).Children.Add(backButton);
         }
 
         private void UpdateUI()
@@ -59,18 +67,34 @@ namespace PokerClickerV3
             var selectedItem = e.Item as string;
             if (selectedItem != null && upgrades.ContainsKey(selectedItem))
             {
-                var upgradeCost = upgrades[selectedItem];
+                var (upgradeCost, multiplier) = upgrades[selectedItem];
                 if (upgradeCost <= clicks)
                 {
                     clicks -= upgradeCost;
                     DisplayAlert("Purchase Successful", $"{selectedItem} purchased successfully.", "OK");
                     UpdateUI();
+                    ApplyMultiplier(multiplier);
+                    upgrades.Remove(selectedItem);
+                    UpgradesList.ItemsSource = null;
+                    UpgradesList.ItemsSource = upgrades.Keys;
                 }
                 else
                 {
                     DisplayAlert("Insufficient Clicks", "You don't have enough clicks to purchase this upgrade.", "OK");
                 }
             }
+        }
+
+        private void ApplyMultiplier(int multiplier)
+        {
+            clicks *= multiplier;
+        }
+
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            // Navigeerime tagasi GamePage.xaml-le
+            await Navigation.PushAsync(new GamePage());
+
         }
     }
 }
