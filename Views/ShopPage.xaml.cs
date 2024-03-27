@@ -15,54 +15,62 @@ namespace PokerClickerV3
             // Add more upgrades as needed
         };
 
-        // Define ClicksLabel and UpgradesList variables
         private Label ClicksLabel;
         private ListView UpgradesList;
 
         public ShopPage(int currentClicks)
         {
-            InitializeComponent(); // Added InitializeComponent method
+            InitializeUI(); // Initialize UI elements
             clicks = currentClicks;
             UpdateUI();
         }
 
-        private void InitializeComponent() // Added InitializeComponent method
+        private void InitializeUI()
         {
-            global::Microsoft.Maui.Controls.Xaml.Extensions.LoadFromXaml(this, typeof(ShopPage));
-            ClicksLabel = this.FindByName<Label>("ClicksLabel");
-            UpgradesList = this.FindByName<ListView>("UpgradesList");
+            // Create ClicksLabel
+            ClicksLabel = new Label
+            {
+                Text = "You have 0 clicks."
+            };
+
+            // Create UpgradesList
+            UpgradesList = new ListView
+            {
+                ItemsSource = upgrades.Keys // Only display upgrade names
+            };
+
+            // Event handlers
+            UpgradesList.ItemTapped += OnBuyClicked; // You can handle item tap to buy upgrades
+
+            // Add UI elements to the content
+            Content = new StackLayout
+            {
+                Children = { ClicksLabel, UpgradesList }
+            };
         }
 
         private void UpdateUI()
         {
-            if (ClicksLabel != null && UpgradesList != null)
-            {
-                ClicksLabel.Text = $"You have {clicks} clicks.";
-                UpgradesList.ItemsSource = upgrades;
-            }
+            ClicksLabel.Text = $"You have {clicks} clicks.";
         }
 
-        private void OnBuyClicked(object sender, EventArgs e)
+        private void OnBuyClicked(object sender, ItemTappedEventArgs e)
         {
-            var selectedItem = (KeyValuePair<string, int>)UpgradesList.SelectedItem;
-
-            if (selectedItem.Value <= clicks)
+            var selectedItem = e.Item as string;
+            if (selectedItem != null && upgrades.ContainsKey(selectedItem))
             {
-                clicks -= selectedItem.Value;
-                // Apply the purchased upgrade
-                DisplayAlert("Purchase Successful", $"{selectedItem.Key} purchased successfully.", "OK");
+                var upgradeCost = upgrades[selectedItem];
+                if (upgradeCost <= clicks)
+                {
+                    clicks -= upgradeCost;
+                    DisplayAlert("Purchase Successful", $"{selectedItem} purchased successfully.", "OK");
+                    UpdateUI();
+                }
+                else
+                {
+                    DisplayAlert("Insufficient Clicks", "You don't have enough clicks to purchase this upgrade.", "OK");
+                }
             }
-            else
-            {
-                DisplayAlert("Insufficient Clicks", "You don't have enough clicks to purchase this upgrade.", "OK");
-            }
-
-            UpdateUI();
-        }
-
-        private void OnBackClicked(object sender, EventArgs e)
-        {
-            Navigation.PopAsync();
         }
     }
 }

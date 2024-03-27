@@ -44,5 +44,12 @@ namespace PokerClickerV3
                 App.Current.UserAppTheme = AppTheme.Light;
             }
         }
+
+        // Käivitatakse, kui kasutaja klõpsab seadete nupul
+        private void OnSettingsButtonClicked(object sender, EventArgs e)
+        {
+            // Siin saate lisada koodi, mis peaks käivituma, kui kasutaja klõpsab seadete nuppu
+            Navigation.PushAsync(new SettingsPage());
+        }
     }
 }

@@ -12,14 +12,13 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
             <Button Text="Game" Clicked="OnGameButtonClicked" Grid.Column="0" />
             <Button Text="Shop" Clicked="OnShopButtonClicked" Grid.Column="1" />
             <Button Text="Settings" Clicked="OnSettingsButtonClicked" Grid.Column="2" />
         </Grid>
 
         <!-- Placeholder for Image and Score -->
-        <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+        <StackLayout x:Name="stackLayout" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
             <!-- Image -->
             <Image Source="Poker.png"
                    HeightRequest="200"
