@@ -24,6 +24,14 @@ namespace PokerClickerV3
 
             // Lisame skoori sildi StackLayout'ile
             stackLayout.Children.Add(scoreLabel);
+
+            // Lisame tagasi nupu
+            var backButton = new Button
+            {
+                Text = "Back"
+            };
+            backButton.Clicked += OnBackButtonClicked;
+            stackLayout.Children.Add(backButton);
         }
 
         private async void OnPokerImageTapped(object sender, EventArgs e)
@@ -39,6 +47,12 @@ namespace PokerClickerV3
             Console.WriteLine($"Clicked {count} times");
         }
 
+        // Tagasi nupu käsitsemine
+        private async void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
         // Lisatud OnGameButtonClicked funktsioon
         async void OnGameButtonClicked(object sender, EventArgs e)
         {
@@ -46,8 +60,10 @@ namespace PokerClickerV3
             Console.WriteLine("Game button clicked");
             Navigation.PushAsync(new GamePage());
         }
+
         async void OnShopButtonClicked(System.Object sender, System.EventArgs e)
             => Application.Current.MainPage = new NavigationPage(new ShopPage(count));
+
         async void OnSettingsButtonClicked(System.Object sender, System.EventArgs e)
             => Application.Current.MainPage = new NavigationPage(new SettingsPage());
     }
